@@ -1,0 +1,19 @@
+body{
+	position:relative;
+	height: 100%;
+	background-color: transparent;
+}
+html{
+	height: 100%;
+	background: url(https://cdn.pixabay.com/photo/2015/10/29/14/38/web-1012467__340.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+p{
+	color: white;
+}
+.list-group-item .active{
+	background-color: #000000;
+}
