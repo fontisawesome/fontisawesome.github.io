@@ -15,8 +15,8 @@ p{
 	color: white;
 }
 .list-group-item:active, .list-group-item:focus{
-	outline: none !important;  
-	box-shadow: none !important;
-    border:none !important;
-
+	outline: 0;
+    outline-color: transparent;
+    outline-width: 0;
+    outline-style: none;
 }
