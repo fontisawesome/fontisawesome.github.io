@@ -17,5 +17,6 @@ p{
 .list-group-item:active, .list-group-item:focus{
 	outline: none !important;  
 	box-shadow: none !important;
+    border:none !important;
 
 }
