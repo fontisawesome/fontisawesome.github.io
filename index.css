@@ -15,5 +15,5 @@ p{
 	color: white;
 }
 .list-group-item:active{
-	background-color: #000000;
+	outline: none !important;
 }
