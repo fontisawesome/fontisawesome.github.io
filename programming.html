@@ -9,8 +9,7 @@
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"/>
 			<link rel="stylesheet" type="text/css" href="index.css"/>
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-			<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"/>
 		</head>
 		<body data-spy="scroll" data-target=".navbar" data-offset="50">
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -111,39 +110,8 @@
 					<div class = "card-body">
 						<h1 class = "display-4 text-light card-title">FFT Problem 1 Solution</h1>
 						<hr class="my-4 bg-light"/>
-						<p class = "card-text">FFT Problem 1 is a Dynamic Programming problem that I have solved. You can see the problem statement here: </p>  
-						<pre class = "prettyprint lang-java bg-dark shadow-lg">
-							<code>
-import java.util.Scanner;
-public class Fft1 {
-
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int x = input.nextInt();
-        long dp[][] = new long [x+1][x+1];
-        long arr[] = new long[x+1];
-
-        for (int i = 1; i <= x; i++){
-            arr[i] = input.nextLong();
-        }
-        for (int i = 0; i <= x; i++){
-            dp[0][i] = 1;
-        }
-            for (int i = 1; i <= x; i++){
-                for (int j = i; j <= x; j++){
-                    dp[i][j] = (((dp[i-1][j-1]*arr[j])% 998244353 + dp[i][j-1])% 998244353 +998244353)%998244353;
-                }
-            }
-            for(int i = 1; i <= x; i++){
-                System.out.print(dp[i][x] + " ");
-            }
-        
-        
-    }
-    
-}
-							</code>
-						</pre>
+						<p class = "card-text">FFT Problem 1 is a Dynamic Programming problem that I have solved. In general, it is a good problem for intermediate dynamic programming. The problem statement can be found by clicking the button below:</p>  
+						
 					</div>
 				</div>	
 				<br></br>
