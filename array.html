@@ -67,7 +67,7 @@
                <div class="row">
                   <div class="col-4 py-0">
                      <div class="list-group list-group-flush shadow-lg" id="list-tab" role="tablist">
-                        <button type = "button" class="list-group-item list-group-item-action active bg-dark text-light borderless" id="list-home-list" data-toggle="list" href="#list-0" role="tab" >Introduction and Purpose</button>
+                        <button type = "button" class="list-group-item list-group-item-action active bg-dark text-light borderless" id="list-home-list" data-toggle="list" href="#list-0" role="tab" >Introduction</button>
                         <button type = "button" class="list-group-item list-group-item-action bg-dark text-light borderless" id="list-profile-list" data-toggle="list" href="#list-1" role="tab" >Usage of Arrays</button>
                         <button type = "button" class="list-group-item list-group-item-action bg-dark text-light borderless" id="list-messages-list" data-toggle="list" href="#list-2" role="tab" >Usage of ArrayLists</button>
                         <button type = "button" class="list-group-item list-group-item-action bg-dark text-light borderless" id="list-settings-list" data-toggle="list" href="#list-3" role="tab" >List Interface</button>
@@ -78,9 +78,58 @@
                      <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active text-light" id="list-0" role="tabpanel">
 							<h4 class = "text-light">Why do we use Arrays or ArrayLists?</h4>
+							<p>Say we have a class of 25 students, and the TDSB has assigned us to make a program that will calculate the average for the entire class. From our current knowledge of Java, we would need to declare 25 different variables and have lines upon lines of code get the mark from each student and add it to the sum. 
+</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+							<code>
+Student s1 = new Student (“Bob”);
+Student s2 = new Student (“Alice”);
+<span class="nocode text-light">…</span>
+Student s25 = new Student (“Kevin”);
+int sum = 0;
+sum += s1.getMark();
+sum += s2.getMark();
+<span class="nocode text-light">…</span>
+sum += s25.getMark();
+							</code>
+							</pre>
+<p>This incredibly inefficient method of storing 25 students would become a disaster and a mess to organize or reuse. Instead, we use the data structures of Arrays and ArrayLists. </p>
                         </div>
                         <div class="tab-pane fade" id="list-1" role="tabpanel">
+							<p>To begin our discussion of Arrays, let’s use a visual diagram to help represent an array. Let's say that this array is an array of integers with length 8. In code, we declare this by using:</p>
+							<pre class = "prettyprint lang-java bg-dark shadow-lg">
+							<code>
+int [] array = new int [8];</code>
+							</pre>
+							<p>The first word specifies the data type that this array will be holding. The pair of square brackets signifies that this variable is an array. The number of pairs of square brackets will signify the dimension of the array. The next word then specifies the name of the array, which in this case, is simply “array”. After the equals sign, we see the keyword new. This keyword is also used in OOP, where new instantiates a new object. However, instead of a constructor following the “new” keyword, we get the data-type once again, and the size of the array in that dimension between two square brackets. The drawing representation will look like this:
+</p>
+<div class = "container bg-dark shadow-lg">
+							<img src="images/array1.png" class="d-block" style="margin-top: 25px; margin-left: auto; margin-right: auto;"/>
+							</div>
 						</div>
+						<p>Arrays simply store each object or value as a position, otherwise known as an index. In this case, we can see that each box has a label from 0 to 7. Note that the index begins from 0. This is known as being zero-indexed, and is the standard for most programming languages. 
+We can also see that each box already has a default value for the primitive data type. In this case, it will be 0. If the data-type was not primitive, all boxes would instead be instantiated to null.
+Now, say we want to store an integer, say 5, at a specific index, say 2. In code, it would be:</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+							<code>
+array[2] = 5;</code>
+							</pre>
+							<p>Similar to how we set a value to a variable, we use the variable, the equals sign, and then the value. However, in this case, we can access the variable at a certain index using this notation: <code>nameOfArray[index]</code>. </br>This is what happens to the array after the code has run: 
+</p>
+<div class = "container bg-dark shadow-lg">
+							<img src="images/array2.png" class="d-block" style="margin-top: 25px; margin-left: auto; margin-right: auto;"/>
+							</div>
+							<p>Now say we want to retrieve a value from this array at index 3. Similar to the notation discussed earlier, we can access the variable at a certain index by using nameOfArray[index]. In this case, instead of setting it to some value, we will print it out:
+</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+							<code>
+System.out.println(array[3]);</code>
+							</pre>
+							<p>
+This will print out 0, as if we refer back to our previous diagram for our array, we can see that the value at index 3 is 0. 
+</br>
+Now say we want to traverse the entire array, summing up the total of all array values. For this, we can either use a for-loop or a for-each loop. 
+</p>
                         <div class="tab-pane fade" id="list-2" role="tabpanel">
 						</div>
                         <div class="tab-pane fade" id="list-3" role="tabpanel">
