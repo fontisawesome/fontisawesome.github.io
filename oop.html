@@ -16,7 +16,7 @@
                <a class="nav-link" href="index.html#home">Home</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link " href="index.html#s-about">About Me</a>
+               <a class="nav-link " href="index.html#s-about">Introduction to Me</a>
             </li>
             <li class="nav-item">
                <a class="nav-link" href="index.html#s-code">Code Portfolio</a>
@@ -38,10 +38,16 @@
                </a>
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item active" href="#">OOP</a>
-                  <a class="dropdown-item" href="#">Arrays and Arraylists</a>
+                  <a class="dropdown-item" href="array.html">Arrays and Arraylists</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">In Progress!</a>
                </div>
+            </li>
+			 <li class="nav-item">
+               <a class="nav-link" href="about.html">About Me</a>
+            </li>
+			<li class="nav-item">
+               <a class="nav-link" href="about.html#s-contact">Contact</a>
             </li>
          </ul>
       </nav>
@@ -307,6 +313,7 @@ public class BouncyBall extends Ball{
 }
 </code>
 </pre>
+<img src="images/uml1.png" class="d-block"/>
 						</div>
 						<div class="col-6 py-0">
 							<h5 class = "text-light">Ball.java</h4>
@@ -433,7 +440,9 @@ BowlingBall casted = (BowlingBall)bouncy; //returns a ClassCastException
 						</br>
 						<p>For example, let’s make the Ball class abstract, as we will only need BowlingBalls and BouncyBalls from now on (Assume BowlingBalls and BouncyBalls). BouncyBall and BowlingBall will likely share a lot of code; for example, they will still both roll. Therefore, we will likely keep roll as a shared method between the two classes. However, let’s add a method, play(), which will likely not have a shared implementation between BowlingBall and BouncyBall. Yet it is still a key feature and trait of every Ball. Therefore, let’s add the method play() and make it abstract.
 </p>
-						<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<div class="row">
+						<div class="col-7 py-0">
+							<pre class = "prettyprint lang-java bg-dark shadow-lg">
 <code>
 public abstract class Ball{
 	private String color;
@@ -465,6 +474,15 @@ public abstract class Ball{
 }
 </code>
 </pre>
+						</div>
+						<div class="col-5 py-0">
+							<div class = "container bg-dark shadow-lg">
+							<img src="images/uml2.png" class="d-block" style="margin-top: 25px"/>
+							</div>
+						</div>
+						</div>
+						
+
 <h5 class = "text-light">Interfaces</h5>
 <p>Interfaces are similar to abstract classes in that they are also used to simplify common functionality between classes. In this case, classes may not even need to be related in any other way. While an abstract class called Shape may have subclasses which are heavily related to each other (Triangle, Rectangle, Circle), an interface such as Comparable may be implemented by a large variety of classes, like ArrayLists, Strings, or the Integer wrapper class. In this way, interfaces will be different from abstract classes. They also use the keyword implements instead of extends, and can not have instance variables or methods that are not abstract or default. In other words, it is a purely abstract class, containing no additional shared methods or implementations. 
 </p>
@@ -478,6 +496,9 @@ interface Rollable
 } 
 </code>
 </pre>
+<div class = "container bg-dark shadow-lg">
+							<img src="images/uml3.png" class="d-block" style="margin-top: 25px; margin-left: auto; margin-right: auto;"/>
+							</div>
 						</div>
                      </div>
                   </div>
