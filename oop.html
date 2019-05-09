@@ -159,7 +159,7 @@ public class Ball{
 	public int size;
 	public Ball(){
 		color = "red"; //default color is red
-		size = 1 //default size is 1
+		size = 1; //default size is 1
 	}
 	public Ball(String c, int s){
 		color = c;
@@ -234,6 +234,7 @@ public void roll(int distance){
 </div>
                         <div class="tab-pane fade" id="list-2" role="tabpanel">
 						<h4 class = "text-light">Encapsulation</h4>
+						
 						<p>One of the major principles of OOP is to be able to control access of components of an object or class from separate areas of code. The major keywords that are used to control this are:</p>
 						<div class="row">
 						<div class="col-5 py-0">
@@ -250,6 +251,67 @@ However, an access level of public on a class does not mean that all the compone
 						</div>
 						<p>Learning this, we change the Ball class once again to ensure the instance variables have a private access level.</p>
 						<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+public class Ball{
+	private String color;
+	private int size;
+	public Ball(){
+		color = "red"; //default color is red
+		size = 1; //default size is 1
+	}
+	public Ball(String c, int s){
+		color = c;
+		size = s;
+	}
+	public String getColor(){
+		return color;
+	}
+	public int getSize(){
+		return size;
+	}
+	public void setColor(String c){
+		color = c;
+	}
+	public void setSize(int s){
+		size = s;
+	}
+	public void roll(){
+		//code not shown
+	}
+}
+</code>
+</pre>
+						</div>
+                        <div class="tab-pane fade" id="list-3" role="tabpanel">
+							<h4 class = "text-light">Inheritance</h4>
+							<p>Another key aspect of OOP is the ability to share properties and reuse code between classes. In general, subclasses, otherwise known as child classes, will inherit or reuse methods and variables from superclasses, otherwise known as parent classes, while usually adding some new methods and instance variables to expand the behaviour of the new class. The relationship between the child to the parent is known as a “is-a” relationship and the relationship between the parent to the child is known as a “has-a” relationship.
+</p>		
+							<div class="row">
+						<div class="col-6 py-0">
+							<h5 class = "text-light">BouncyBall.java</h4>
+							<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+public class BouncyBall extends Ball{
+	private double bounciness;
+	public BouncyBall(){
+		
+	}
+	public String getBounciness(){
+		return bounciness;
+	}
+	public void setBounciness(double b){
+		bounciness = b;
+	}
+	public void bounce(){
+		//code not shown
+	}
+}
+</code>
+</pre>
+						</div>
+						<div class="col-6 py-0">
+							<h5 class = "text-light">Ball.java</h4>
+							<pre class = "prettyprint lang-java bg-dark shadow-lg">
 <code>
 public class Ball{
 	private String color;
@@ -280,8 +342,15 @@ public class Ball{
 }
 </code>
 </pre>
+
 						</div>
-                        <div class="tab-pane fade" id="list-3" role="tabpanel">...</div>
+						</div>
+						<p>In this situation, the BouncyBall class will be a subclass, and the Ball class will be a superclass. Notice that the BouncyBall class has an extra bit of code past the normal class header: extends Ball. This extends keyword is what expresses inheritance in Java. From this example, we can see the usefulness of inheritance. Instead of having to copy the entirety of the code from Ball into BouncyBall, we simply need to use the extends keyword and implement the extra functionality. In this case, we add the double bounciness, the void instance method bounce, and the mutator and accessor for bounciness. 
+</p>
+</br>
+<p>There are some additional keywords that can be used to allow for additional functionality. The super keyword allows the class to use methods and constructors from the superclass. For example, to access the Ball constructor in the BouncyBall constructor, the code would look like this:
+</p>
+						</div>
 						<div class="tab-pane fade" id="list-4" role="tabpanel">...</div>
 						<div class="tab-pane fade" id="list-5" role="tabpanel">...</div>
 						<div class="tab-pane fade" id="list-6" role="tabpanel">...</div>
