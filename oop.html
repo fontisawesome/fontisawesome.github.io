@@ -294,7 +294,7 @@ public class Ball{
 public class BouncyBall extends Ball{
 	private double bounciness;
 	public BouncyBall(){
-		
+		bounciness = 0.1;
 	}
 	public String getBounciness(){
 		return bounciness;
@@ -350,8 +350,65 @@ public class Ball{
 </br>
 <p>There are some additional keywords that can be used to allow for additional functionality. The super keyword allows the class to use methods and constructors from the superclass. For example, to access the Ball constructor in the BouncyBall constructor, the code would look like this:
 </p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+public BouncyBall(String c, int s, double b){
+	super(c, s);
+	bounciness = b;
+}
+</code>
+</pre>
+
+<p>We will talk about the use of super to overload methods in Polymorphism. 
+</br></br>
+Superclasses and Subclasses are also interconnected in a multitude of ways. A superclass variable, for example, can store objects of a subclass. In terms of our example, we could store a BouncyBall object in a Ball variable.
+</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+Ball bouncy = new BouncyBall(“red”, 10, 0.1);
+</code>
+</pre>
+<p>We will discuss the implications and uses of this in the next section, Polymorphism.</p>
+
+
 						</div>
-						<div class="tab-pane fade" id="list-4" role="tabpanel">...</div>
+						<div class="tab-pane fade" id="list-4" role="tabpanel">
+						<h4 class = "text-light">Polymorphism</h4>
+						<p>Polymorphism comes from the greek prefix poly-, meaning many, and morphe, meaning form. This literally translates to many forms, which will make more sense as we go along. We begin with our example of BouncyBall and Ball. Say I want a regular ball to roll differently from a bouncy ball. However, I don’t want to go through the inconvenience of creating a completely separate method for it. Therefore, we decide to override the method roll in BouncyBall.</p>
+						<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+public void roll (){
+	//code different but not shown
+}
+</code>
+</pre>
+<p>Now from the previous section on Methods we have learned about method overloading and how the compiler processes and determines which method to use. We recall that a method’s signature is how the compiler can tell the difference between each overload. Yet in this case, the method signatures are identical! So how will the compiler deduce which method to use? In short, it doesn’t need to. The method is tied to a specific class, and since they are still instance methods, require an object to run. The method is simply determined by the type of object that the method runs from.
+</p>
+						<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+Ball bouncy = new BouncyBall(“red”, 10, 0.1);
+</code>
+</pre>
+<p>Even the bouncy object, which appears to be of type Ball, will still use the BouncyBall override for roll because the object is still inherently of type BouncyBall. 
+</p>
+</br>
+<p>Continuing with the bouncy object, we see that the variable is of type Ball. This means that any methods that can only be run from a BouncyBall object, like bounce(), will return an error.</p>
+												<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+bouncy.bounce(); //returns an error
+</code>
+</pre>
+<p>Yet the object inherently stored in the variable is of type BouncyBall, and should be able to use the bounce() method. So what do we do? We introduce downcasting. Using casting we are able to turn the bouncy object back into a BouncyBall.
+</p>
+												<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+BouncyBall casted = (BouncyBall)bouncy;
+</code>
+</pre>
+<p>This allows us to use the bounce method on casted.</p>
+
+
+						</div>
 						<div class="tab-pane fade" id="list-5" role="tabpanel">...</div>
 						<div class="tab-pane fade" id="list-6" role="tabpanel">...</div>
                      </div>
