@@ -117,6 +117,12 @@ public class Ball{
                            <p>Now that I have discussed the basic features of classes and objects, we can discuss their capabilities in more detail.</p>
                         </div>
                         <div class="tab-pane fade" id="list-1" role="tabpanel">
+						<h4 class = "text-light">Methods</h4>
+						<p>Methods are a key component of OOP and its usefulness.
+There are many types of methods used in OOP, such as the mutators and accessors we have discussed earlier.
+In general, all methods have an access level, a return type, and a name. Methods may also be static or non static. 
+All methods have either a certain data type or void as a return type. Methods returning a data type will give a value of that type at the end of their execution. Methods returning void may still perform actions but will not return any values at the end of their execution.
+</p>
 						<h4 class = "text-light">Mutators and Accessors</h4>
 <p>Let&rsquo;s say I want to change the color of the ball, from red to blue. Currently, the only way to do that would be to do <code>redBall.color = &ldquo;blue&rdquo;;</code> but that is generally considered bad programming style and would likely not work in most programs due to instance variables having a private access level. A similar problem arises when I want to get what the color of the ball is, as there is no other option but to use redBall.color. Therefore, we use mutators and accessors, otherwise known as &ldquo;getters&rdquo; and &ldquo;setters&rdquo;. They are simply methods which will modify or access the variables in a less direct sense, which allows for more control over the values that are allowed.</p>
 
@@ -201,8 +207,86 @@ Math.sqrt(number);
 </pre>
 <p>In general, static methods are associated with the class, and instance methods are associated with the object.
 </p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+public static double sqrt(double number){
+	//code not shown
+}
+</code>
+</pre>
+<h4 class = "text-light">Instance Method</h4>
+<p>An instance method is a regular method with no special properties. It simply follows the access level, return type, name, and parameter header. It requires an object to use.
+</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+public void roll(){
+	//code not shown
+}
+</code>
+</pre>
+<h4 class = "text-light">Overloaded Methods</h4>
+<p>Multiple methods with the same name but different parameter lists so that their method signature is different. This allows the compiler to tell which overloaded method is currently being used. For example, I can have both a default constructor, which will have no parameters, and a custom constructor, where each parameter represents an instance variable’s value. These two will have different method signatures due to the difference in parameters but will have the same name (class name). 
+</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+public void roll(){
+	//code not shown
+}
+public void roll(int distance){
+	//code not shown
+}
+</code>
+</pre>
 </div>
-                        <div class="tab-pane fade" id="list-2" role="tabpanel">...</div>
+                        <div class="tab-pane fade" id="list-2" role="tabpanel">
+						<h4 class = "text-light">Encapsulation</h4>
+						<p>One of the major principles of OOP is to be able to control access of components of an object or class from separate areas of code. The major keywords that are used to control this are:</p>
+						<div class="row">
+						<div class="col-5 py-0">
+							<h5 class = "text-light">public</h4>
+							<p>Public allows the class / class component to be used within any client program.
+However, an access level of public on a class does not mean that all the components within the class are public. Therefore, a client program may be able to use a class but not access specific methods or variables.
+</p>
+						</div>
+						<div class="col-5 py-0">
+							<h5 class = "text-light">private</h4>
+							<p>Private prevents the class component from being used in any other location but the class itself. The private keyword can not be applied to a class, as that would prevent the usage of that class. This access level is generally applied to instance variables in a class, as mutators and accessors should undertake the role of changing and getting the value of an instance variable.
+</p>
+						</div>
+						</div>
+						<p>Learning this, we change the Ball class once again to ensure the instance variables have a private access level.</p>
+						<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+public class Ball{
+	private String color;
+	private int size;
+	public Ball(){
+		color = "red"; //default color is red
+		size = 1 //default size is 1
+	}
+	public Ball(String c, int s){
+		color = c;
+		size = s;
+	}
+	public String getColor(){
+		return color;
+	}
+	public int getSize(){
+		return size;
+	}
+	public void setColor(String c){
+		color = c;
+	}
+	public void setSize(int s){
+		size = s;
+	}
+	public void roll(){
+		//code not shown
+	}
+}
+</code>
+</pre>
+						</div>
                         <div class="tab-pane fade" id="list-3" role="tabpanel">...</div>
 						<div class="tab-pane fade" id="list-4" role="tabpanel">...</div>
 						<div class="tab-pane fade" id="list-5" role="tabpanel">...</div>

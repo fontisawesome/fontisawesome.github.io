@@ -61,9 +61,9 @@ pre.prettyprint{
 	width:95%;margin:1em auto;padding:1em;white-space:pre-wrap
 }
 #list-tab{
-	position: fixed;
-	top:0;
-	left:0;
-	margin-left: 440px;
-	margin-top: 275px;
+	
+	position: -webkit-sticky;
+	position: sticky;
+	top: 90px;
+	align-self: flex-end;
 }
