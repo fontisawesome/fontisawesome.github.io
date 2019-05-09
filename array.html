@@ -101,12 +101,17 @@ sum += s25.getMark();
 							<code>
 int [] array = new int [8];</code>
 							</pre>
-							<p>The first word specifies the data type that this array will be holding. The pair of square brackets signifies that this variable is an array. The number of pairs of square brackets will signify the dimension of the array. The next word then specifies the name of the array, which in this case, is simply “array”. After the equals sign, we see the keyword new. This keyword is also used in OOP, where new instantiates a new object. However, instead of a constructor following the “new” keyword, we get the data-type once again, and the size of the array in that dimension between two square brackets. The drawing representation will look like this:
-</p>
+							<p>The first word specifies the data type that this array will be holding. The pair of square brackets signifies that this variable is an array. The number of pairs of square brackets will signify the dimension of the array. The next word then specifies the name of the array, which in this case, is simply “array”. After the equals sign, we see the keyword new. This keyword is also used in OOP, where new instantiates a new object. However, instead of a constructor following the “new” keyword, we get the data-type once again, and the size of the array in that dimension between two square brackets. </p>
+							<p>There is also a method of declaring an array with specific values. This will be the array we will be using.</p>
+							<pre class = "prettyprint lang-java bg-dark shadow-lg">
+							<code>
+int [] array = {1,2,3,4,5,6,7,8};</code>
+							</pre>
+							<p>We can now see the initial state of our array in a visual representation.</p>
 <div class = "container bg-dark shadow-lg">
 							<img src="images/array1.png" class="d-block" style="margin-top: 25px; margin-left: auto; margin-right: auto;"/>
 							</div>
-						</div>
+						
 						<p>Arrays simply store each object or value as a position, otherwise known as an index. In this case, we can see that each box has a label from 0 to 7. Note that the index begins from 0. This is known as being zero-indexed, and is the standard for most programming languages. 
 We can also see that each box already has a default value for the primitive data type. In this case, it will be 0. If the data-type was not primitive, all boxes would instead be instantiated to null.
 Now, say we want to store an integer, say 5, at a specific index, say 2. In code, it would be:</p>
@@ -130,6 +135,69 @@ This will print out 0, as if we refer back to our previous diagram for our array
 </br>
 Now say we want to traverse the entire array, summing up the total of all array values. For this, we can either use a for-loop or a for-each loop. 
 </p>
+<h5 class = "text-light">For Loop</h5>
+<p>Using for loops to traverse an array is relatively simple. Assuming that you, the reader, has a basic understanding of for loops, we just need to make a for loop that will traverse from 0, to 7. Note that 7 is the length of the array-1. The end point will always be this value, so we do not need to always change the end point whenever we traverse a different array with a different size. The basic code for traversing an array is:
+</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+							<code>
+for (int i = 0; i < array.length; i++){
+	array[i]; //use value of variable to process or set a value for this variable
+}</code></pre>
+<p>As you can see, variable i will begin at 0 and continuing incrementing by 1 until it reaches array.length-1. After this point, it will increment to array.length, which means it will no longer satisfy the for-loop conditional. 
+</br>
+Back to our problem, the solution would be:</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+							<code>
+int sum = 0;
+for (int i = 0; i < array.length; i++){
+	sum += array[i];
+}</code></pre>
+<p>The sum variable will then hold the value of the sum.</p>
+<h5 class = "text-light">For Each Loop</h5>
+<p>Using a for-each loop to traverse an array is even simpler than a for loop. However, you lose some functionality in the process. A for-each loop can retrieve the value at every index in the array, but it can not set values and does not keep track of the current index. Its basic structure is:
+</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+							<code>
+for (datatype variableName : nameOfArray){
+	variableName; //This will contain the value at a certain index of the array nameOfArray. It has no relation to the variable storing the value at the index, and therefore can not be used to set the array. 
+}</code></pre>	
+<p>Solving our previous problem using for-each loops looks like:
+</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+							<code>
+int sum = 0;
+for (int i : array){
+	sum+= i;
+}
+</code></pre>
+<p>Now, we are finally able to solve the problem of computing the average grade in a class of 25 students. Let's assume that the array of students has already been initialized with all the correct data, and is named <b>arrayOfStudents</b>. In this case, we will have both a solution using a for-each loop and a solution using a for loop.</p>
+<div class = "row">
+<div class="col-6 py-0">
+<h5 class = "text-light">With For Loop</h5>
+							<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+int sum = 0;
+for (int i = 0; i < arrayOfStudents.length; i++){
+	sum += arrayOfStudents[i];
+}
+double average = (double)sum/arrayOfStudents.length;
+</code>
+</pre>
+						</div>
+						<div class="col-6 py-0">
+						<h5 class = "text-light">With For-Each Loop</h5>
+							<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+int sum = 0;
+for (int i : arrayOfStudents){
+	sum += i;
+}
+double average = (double)sum/arrayOfStudents.length;
+</code>
+</pre>
+						</div>
+						</div>
+						</div>	
                         <div class="tab-pane fade" id="list-2" role="tabpanel">
 						</div>
                         <div class="tab-pane fade" id="list-3" role="tabpanel">
