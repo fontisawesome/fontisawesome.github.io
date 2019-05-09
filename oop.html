@@ -406,10 +406,73 @@ BouncyBall casted = (BouncyBall)bouncy;
 </code>
 </pre>
 <p>This allows us to use the bounce method on casted.</p>
-
+												<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+casted.bounce(); //no error
+</code>
+</pre>
+<p>However, you must be careful that the underlying object stored within the superclass variable is the same type that you are casting to. For example, if we had another subclass from Ball, called BowlingBall, we would not be able to cast bouncy to a BowlingBall object.</p>
+																		<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+BowlingBall casted = (BowlingBall)bouncy; //returns a ClassCastException
+</code>
+</pre>
+						</div>
+						<div class="tab-pane fade" id="list-5" role="tabpanel">
+						<h4 class = "text-light">Abstraction</h4>
+						<p>Another major paradigm of OOP is Abstraction. It hides the code implementation of certain methods from the user. This is accomplished in Java via the use of abstract classes and interfaces. </p>
+						<div class="row">
+						<div class="col-5 py-0">
+							<h5 class = "text-light">Abstract Classes</h5>
+							<p>Abstract classes are classes that are unable to be instantiated into objects, but can be inherited using the extend keyword. They may or may not contain abstract methods, which will be discussed below. These serve as a basic framework for shared code between classes that will likely be related and used in similar circumstances. </p>
+						</div>
+						<div class="col-5 py-0">
+							<h5 class = "text-light">Abstract Method</h5>
+							<p>An abstract method does not have any implementation or code. Instead, the subclasses that inherit the abstract class containing this method are expected to implement the method there. In fact, an error will occur when a class inherits an abstract class but does not implement all methods fully. </p>
+						</div>
+						</div>
+						</br>
+						<p>For example, let’s make the Ball class abstract, as we will only need BowlingBalls and BouncyBalls from now on (Assume BowlingBalls and BouncyBalls). BouncyBall and BowlingBall will likely share a lot of code; for example, they will still both roll. Therefore, we will likely keep roll as a shared method between the two classes. However, let’s add a method, play(), which will likely not have a shared implementation between BowlingBall and BouncyBall. Yet it is still a key feature and trait of every Ball. Therefore, let’s add the method play() and make it abstract.
+</p>
+						<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+public abstract class Ball{
+	private String color;
+	private int size;
+	public Ball(){
+		color = "red"; //default color is red
+		size = 1 //default size is 1
+	}
+	public Ball(String c, int s){
+		color = c;
+		size = s;
+	}
+	public String getColor(){
+		return color;
+	}
+	public int getSize(){
+		return size;
+	}
+	public void setColor(String c){
+		color = c;
+	}
+	public void setSize(int s){
+		size = s;
+	}
+	public void roll(){
+		//code not shown
+	}
+	public abstract void play();
+}
+</code>
+</pre>
+<h5 class = "text-light">Interfaces</h5>
+<p>Interfaces are similar to abstract classes in that they are also used to simplify common functionality between classes. In this case, classes may not even need to be related in any other way. While an abstract class called Shape may have subclasses which are heavily related to each other (Triangle, Rectangle, Circle), an interface such as Comparable may be implemented by a large variety of classes, like ArrayLists, Strings, or the Integer wrapper class. In this way, interfaces will be different from abstract classes. They also use the keyword implements instead of extends, and can not have instance variables or methods that are not abstract or default. In other words, it is a purely abstract class, containing no additional shared methods or implementations. 
+</p>
+</br>
+<p>For example, instead of using shared roll() code in the abstract class Ball, let’s make an interface known as Rollable. This may be implemented by a variety of classes, such as Pencil, RollingPin, and Barrel, which may have nothing to do with Balls. By creating this interface Rollable, we simply let Ball implement Rollable. This way, Ball can still have a common implementation for roll() for both BowlingBall and BouncyBall. </p>
 
 						</div>
-						<div class="tab-pane fade" id="list-5" role="tabpanel">...</div>
 						<div class="tab-pane fade" id="list-6" role="tabpanel">...</div>
                      </div>
                   </div>
