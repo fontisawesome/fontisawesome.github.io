@@ -67,7 +67,6 @@
                         <button type = "button" class="list-group-item list-group-item-action bg-dark text-light borderless" id="list-settings-list" data-toggle="list" href="#list-3" role="tab" >Inheritance</button>
 						<button type = "button" class="list-group-item list-group-item-action bg-dark text-light borderless" id="list-settings-list" data-toggle="list" href="#list-4" role="tab" >Polymorphism</button>
 						<button type = "button" class="list-group-item list-group-item-action bg-dark text-light borderless" id="list-settings-list" data-toggle="list" href="#list-5" role="tab" >Abstraction</button>
-						<button type = "button" class="list-group-item list-group-item-action bg-dark text-light borderless" id="list-settings-list" data-toggle="list" href="#list-6" role="tab" >Conclusion</button>
                      </div>
                   </div>
                   <div class="col-8 py-0">
@@ -471,9 +470,15 @@ public abstract class Ball{
 </p>
 </br>
 <p>For example, instead of using shared roll() code in the abstract class Ball, let’s make an interface known as Rollable. This may be implemented by a variety of classes, such as Pencil, RollingPin, and Barrel, which may have nothing to do with Balls. By creating this interface Rollable, we simply let Ball implement Rollable. This way, Ball can still have a common implementation for roll() for both BowlingBall and BouncyBall. </p>
-
+						<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+interface Rollable
+{ 
+    void roll(); 
+} 
+</code>
+</pre>
 						</div>
-						<div class="tab-pane fade" id="list-6" role="tabpanel">...</div>
                      </div>
                   </div>
                </div>
