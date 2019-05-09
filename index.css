@@ -67,3 +67,9 @@ pre.prettyprint{
 	top: 90px;
 	align-self: flex-end;
 }
+#chess1{
+	display: block;
+	margin-left: auto;
+  margin-right: auto;
+  
+}
