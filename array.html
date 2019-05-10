@@ -70,8 +70,6 @@
                         <button type = "button" class="list-group-item list-group-item-action active bg-dark text-light borderless" id="list-home-list" data-toggle="list" href="#list-0" role="tab" >Introduction</button>
                         <button type = "button" class="list-group-item list-group-item-action bg-dark text-light borderless" id="list-profile-list" data-toggle="list" href="#list-1" role="tab" >Usage of Arrays</button>
                         <button type = "button" class="list-group-item list-group-item-action bg-dark text-light borderless" id="list-messages-list" data-toggle="list" href="#list-2" role="tab" >Usage of ArrayLists</button>
-                        <button type = "button" class="list-group-item list-group-item-action bg-dark text-light borderless" id="list-settings-list" data-toggle="list" href="#list-3" role="tab" >List Interface</button>
-						<button type = "button" class="list-group-item list-group-item-action bg-dark text-light borderless" id="list-settings-list" data-toggle="list" href="#list-4" role="tab" >Arrays vs ArrayLists</button>
                      </div>
                   </div>
                   <div class="col-8 py-0">
@@ -159,7 +157,7 @@ for (int i = 0; i < array.length; i++){
 <pre class = "prettyprint lang-java bg-dark shadow-lg">
 							<code>
 for (datatype variableName : nameOfArray){
-	variableName; //This will contain the value at a certain index of the array nameOfArray. It has no relation to the variable storing the value at the index, and therefore can not be used to set the array. 
+	variableName; //This will contain the value at a certain index of the array nameOfArray. It can not be directly changed with an = sign.
 }</code></pre>	
 <p>Solving our previous problem using for-each loops looks like:
 </p>
@@ -199,11 +197,49 @@ double average = (double)sum/arrayOfStudents.length;
 						</div>
 						</div>	
                         <div class="tab-pane fade" id="list-2" role="tabpanel">
+							<p>Now say we have a more difficult problem. You have a file with an unknown number of student grades, and you want to find the top 10 of them. The FileIO part of this problem is unnecessary to what we are discussing right now, and so we will simply say that there is a magic method that will read the next integer in a file.</p>
+							<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+public static int nextInt(){
+	//implementation not shown, returns next integer, or if end of file reached, -1
+}</code>
+</pre>
+<p>Sorting is also discussed in a different page, so we will have a magic method that will sort for us.</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+public static ArrayList<Integer> sort(ArrayList<Integer> list){
+	//implementation not shown, returns sorted list in descending order
+}</code>
+</pre>
+<p>Using arrays would be difficult and inefficient, as you would have to loop through the file once to find the length first, then use an array of that length to store all the values. Instead, we will solve the problem using the ArrayList data structure. </br>Let’s first discuss what the ArrayList is. 
+</p>
+</br>
+<p>The ArrayList data structure is generally a part of the data structure group known as a Dynamic Array. It can change its size continuously so that values can be continuously added into the ArrayList. This is similar a list in real life, where there is no fixed size and items can be added easily. Let’s start by creating an ArrayList of Integers.
+</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+ArrayList <Integer> arrayList = new ArrayList<Integer>();
+</code>
+</pre>
+<p>Notice that the ArrayList is not of type int, but instead of type Integer. This is because ArrayLists can not function with primitive data types. The Integer class is known as a wrapper class, as it simply serves as a class representation of int. Currently, the ArrayList has no items and has a size of 0. We can add items using the method .add(Integer value).</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+arrayList.add(0);
+arrayList.add(2);
+</code>
+</pre>
+<p>We can also add using the overload .add(int index, Integer value).</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+arrayList.add(1, 5);
+</code>
+</pre>
+<p>Now we have an arrayList with three items, 0, 5, and 2. </p>	
+<div class = "container bg-dark shadow-lg">
+							<img src="images/arraylist1.png" class="d-block" style="margin-top: 25px; margin-left: auto; margin-right: auto;"/>
+							</div>			
 						</div>
-                        <div class="tab-pane fade" id="list-3" role="tabpanel">
-						</div>
-						<div class="tab-pane fade" id="list-4" role="tabpanel">
-						</div>
+                       
                      </div>
                   </div>
                </div>
