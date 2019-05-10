@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"/>
+      <link rel="stylesheet" type="text/css" href="index.css"/>
+   </head>
+   <body data-spy="scroll" data-target=".navbar" data-offset="50">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+         <a class="navbar-brand" href="index.html">Andy's Website</a>
+         <ul class="navbar-nav">
+            <li class="nav-item">
+               <a class="nav-link" href="index.html#home">Home</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link " href="index.html#s-about">Introduction to Me</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="index.html#s-code">Code Portfolio</a>
+            </li>
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="programming.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Past Projects
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="programming.html#s-chess">Chess Program</a>
+							<a class="dropdown-item" href="programming.html#s-contest">Contest Problem Solutions</a>
+						
+						</div>
+            </li>
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Java Explanations
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item active" href="oop.html">OOP</a>
+                  <a class="dropdown-item" href="array.html">Arrays and Arraylists</a>
+				  <a class="dropdown-item" href="recursion.html">Recursion</a>
+				<a class="dropdown-item" href="sorting.html">Sorting and Searching</a>
+                
+               </div>
+            </li>
+			 <li class="nav-item">
+               <a class="nav-link" href="about.html#s-aboutme">About Me</a>
+            </li>
+			<li class="nav-item">
+               <a class="nav-link" href="about.html#s-contact">Contact</a>
+            </li>
+			<li class="nav-item">
+               <a class="nav-link" href="bibliography.html">Bibliography</a>
+            </li>
+         </ul>
+      </nav>
+      <div class = "container" id = "s-home">
+         <p>
+            <br></br>
+         </p>
+         <p>
+            <br></br>
+         </p>
+      </div>
+      <div class = "container">
+         <div class = "row card bg-dark">
+            <div class = "card-body">
+               <h1 class = "display-4 text-light card-title">Recursion Explanation</h1>
+               <hr class="my-4 bg-light"/>
+               <div class="row">
+                  <div class="col-4 py-0">
+                     <div class="list-group list-group-flush shadow-lg" id="list-tab" role="tablist">
+                        <button type = "button" class="list-group-item list-group-item-action active bg-dark text-light borderless" id="list-home-list" data-toggle="list" href="#list-0" role="tab" >Introduction</button>
+                        <button type = "button" class="list-group-item list-group-item-action bg-dark text-light borderless" id="list-profile-list" data-toggle="list" href="#list-1" role="tab" >Types of Recursion</button>
+                        <button type = "button" class="list-group-item list-group-item-action bg-dark text-light borderless" id="list-messages-list" data-toggle="list" href="#list-2" role="tab" >Stack Tracing and Why We Use Recursion</button>
+                     </div>
+                  </div>
+                  <div class="col-8 py-0">
+                     <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active text-light" id="list-0" role="tabpanel">
+						<p>Recursion is the concept of breaking a problem down continuously into smaller problems of the same type until the smaller chunks are trivial to solve, then using those answers to recompute the answer. However, not all problems can be solved using recursion. In general, there are 3 rules that all recursive solvable problems must obey. 
+</br></br>
+Firstly, the problem must have the ability to be broken down into smaller parts. For example, in this case of a recursive solution to fibonacci, the solution to the nth fibonacci number is equal to the n-1th fibonacci number plus the n-2th fibonacci number, simplifying the problems.
+</br></br>
+Secondly, the problem solution must be able to be reformed from the solutions of the smaller problem (s).  In the case of the factorial solution, when given the factorial of n-1, you can compute the factorial of n by multiplying n by the factorial of n-1.
+</br></br>
+Lastly, the problem must have a base case, where the problem can not be split any further and the answer is trivial. In the case of the fibonacci algorithm, this is when n is 0 or 1, where the answer is 1 for both. 
+</p>
+                        </div>
+                        <div class="tab-pane fade" id="list-1" role="tabpanel">
+						<p>To represent the recursion paradigm in code, we generally have two different types: Tail and Mutual recursion.
+</br></p>
+<h5 class = "text-light">Tail Recursion:</h5>
+<p>
+Tail recursion means that the method calls itself at the end of every run. This generally means that the return statement contains the self call. 
+</br>
+For example, a function that will calculate the sum of all numbers from 1 to n:
+</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+							<code>
+public int sum (int n){
+	if (n == 1){
+		return 1;
+	}
+	return n + sum(n-1);
+}</code>
+							</pre>
+							<h5 class = "text-light">Mutual Recursion:</h5>
+<p>
+Mutual recursion means that the method calls a separate method instead of itself. That method will then call this method again. 
+</br>
+For example:
+</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+							<code>
+public int a (int param){
+	if (param < 0){
+		return 1;
+	}
+	return b(param-1) - param;
+}
+public int b(int param){
+	int (param < 0){
+		return param+1;
+	}
+	return a(param-1) - param;
+}	
+
+}</code>
+							</pre>
+						</div>	
+                        <div class="tab-pane fade" id="list-2" role="tabpanel">
+							<h4 class = "text-light">Stack Trace for Tail and Mutual Examples</h5>
+							<p>Let’s trace our example from Tail Recursion.</p>
+							<div class = "container bg-dark shadow-lg">
+<pre class = "text-light">
+sum(5)
+
+5 + sum(4)
+
+5 + 4 + sum(3)
+
+5 + 4 + 3 + sum(2)
+ 
+5 + 4 + 3 + 2 + sum(1)
+
+5 + 4 + 3 + 2 + 1
+
+15
+</pre>
+</div>
+<p>Let’s trace our example from Mutual Recursion.</p>
+<div class = "container bg-dark shadow-lg">
+<pre class = "text-light">
+b(5) 
+
+a(4) - 5
+
+b(3) - 4 - 5
+
+a(2) - 3 - 4 - 5
+
+b(1) - 2 - 3 - 4 - 5
+
+b(0) - 1 - 2 - 3 - 4 - 5
+
+1 - 1 - 2 - 3 - 4 - 5
+
+-14
+</pre>
+</div>
+<p>In general, recursion is used because it is more easy to understand and program than iterative solutions. However, recursion is generally slower than iterative solutions because it requires of memory allocation time when the method call is stored in the stack. </p>
+						</div>
+						
+					
+						
+                    </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <br></br>
+      </div>
+      <
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/15.2.1/smooth-scroll.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+      <script>
+         $(function(){
+         var scroll = new SmoothScroll('a[href *= "#s-"]');
+         });
+      </script>
+   </body>
+</html>

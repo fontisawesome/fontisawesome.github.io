@@ -28,8 +28,7 @@
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="programming.html#s-chess">Chess Program</a>
 							<a class="dropdown-item" href="programming.html#s-contest">Contest Problem Solutions</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">In Progress!</a>
+							
 						</div>
             </li>
             <li class="nav-item dropdown">
@@ -39,15 +38,19 @@
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item active" href="oop.html">OOP</a>
                   <a class="dropdown-item" href="array.html">Arrays and Arraylists</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">In Progress!</a>
+				  <a class="dropdown-item" href="recursion.html">Recursion</a>
+							<a class="dropdown-item" href="sorting.html">Sorting and Searching</a>
+                
                </div>
             </li>
 			 <li class="nav-item">
-               <a class="nav-link" href="about.html">About Me</a>
+               <a class="nav-link" href="about.html#s-aboutme">About Me</a>
             </li>
 			<li class="nav-item">
                <a class="nav-link" href="about.html#s-contact">Contact</a>
+            </li>
+			<li class="nav-item">
+               <a class="nav-link" href="bibliography.html">Bibliography</a>
             </li>
          </ul>
       </nav>
@@ -238,8 +241,108 @@ arrayList.add(1, 5);
 <div class = "container bg-dark shadow-lg">
 							<img src="images/arraylist1.png" class="d-block" style="margin-top: 25px; margin-left: auto; margin-right: auto;"/>
 							</div>			
+							<p>Let’s say we want to remove the item at index 0. To do this, we use the method .remove(int index).</p>
+							<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+arrayList.remove(0);
+</code>
+</pre>
+<p>The new array looks like:</p>
+							<div class = "container bg-dark shadow-lg">
+							<img src="images/arraylist2.png" class="d-block" style="margin-top: 25px; margin-left: auto; margin-right: auto;"/>
+							</div>
+							<p>Let’s say we want to remove the first instance of the number 2. To do this, we use the method .remove(Integer value).</p>
+														<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+arrayList.remove((Integer)2);
+</code>
+</pre>
+<p>The 2 is casted to the wrapper class to avoid confusion between this overload of remove and the previous overload. 
+</br>
+The array now looks like:</p>
+						<div class = "container bg-dark shadow-lg">
+							<img src="images/arraylist3.png" class="d-block" style="margin-top: 25px; margin-left: auto; margin-right: auto;"/>
+							</div>	
+							<p>Now say we want to change the value at index 0 into a 3. For this, we use the method .set(int index, Integer newValue).</p>
+																					<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+arrayList.set(0, 3);
+</code>
+</pre>	
+<p>The array now looks like:</p>
+<div class = "container bg-dark shadow-lg">
+							<img src="images/arraylist4.png" class="d-block" style="margin-top: 25px; margin-left: auto; margin-right: auto;"/>
+							</div>
+							<p>Now we discuss the traversal of an ArrayList. Similar to the traversal of an Array, an ArrayList may also use both a for loop and a for-each loop. The for-each loop is simpler but still has the same restriction; the current object of the for-each loop can not be modified directly using the = sign. However, mutators and accessors can be used to change the value of the object indirectly.
+</p>
+<h5 class = "text-light">For Loop</h5>
+<p>The method to find the size of the array is .size(). We must use this because the ArrayList does not have a fixed size and therefore the for loop cannot loop through a constant length.
+</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+for (int i = 0; i < arrayList.size(); i++){
+	arrayList.get(i); //use the Integer value for processing
+	arrayList.set(i, newValue); //set the value at the index
+}</code>
+</pre>	
+<h5 class = "text-light">For Each Loop</h5>
+<p>The for each loop can not set the object directly, instead having to use mutators. Instead of having an ArrayList of Integers, let’s say we have a class known as Students, with a simple instance variable of grade, and a mutator and accessor for that value.
+</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+public class Student{
+	private int grade;
+
+	public Student (int g){
+		grade = g;
+	}
+
+	public void setGrade(int g){
+		grade = g;
+	}
+
+	public int getGrade(){
+		return grade;
+	}
+
+}
+</code>
+</pre>
+<p>Let’s have an ArrayList of them known as listOfStudents. Let’s assume that we have already initialized them with Students. Here's the code for traversing that ArrayList.</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+for (Student s: listOfStudents){
+	s.getGrade(); //The grade can be used for processing.
+	s.setGrade(value); //The grade of the student that is being traversed at that point can be modified using setGrade.
+}
+</code>
+</pre>
+<p>As you can see, Student s can be modified indirectly with .setGrade().
+</br>
+Now that we know how to use an ArrayList, we can solve the initial problem of the average of the top 10 scores from a file with unknown size.</p>
+<pre class = "prettyprint lang-java bg-dark shadow-lg">
+<code>
+int currentScore = nextInt();
+int sum = 0;
+ArrayList<Integer> scores = new ArrayList<Integer>();
+while(currentScore != -1){
+	scores.add(currentScore);
+	currentScore = nextInt();
+}
+scores = sort(scores);
+for (int i = 0; i < 10; i++){ //top 10
+sum += scores.get(i);
+}
+double average = (double)sum/10;
+</code>
+</pre>
+
+
+							
+							</div>
+							</div>
 						</div>
-                       
+						
                      </div>
                   </div>
                </div>
